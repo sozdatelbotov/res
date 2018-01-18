@@ -22,7 +22,6 @@ const serverhttp = http.createServer((req, res)=>{
         res.end()
 }).listen(process.env.PORT || 5000)
 const url = 'https://sbotsa.herokuapp.com/';
-var https = require('https');
 (function sl(){
     https.get(url, data=>{
     let sum = Number(data)+5})
