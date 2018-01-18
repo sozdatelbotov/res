@@ -15,6 +15,7 @@ const techologies = require('./techologies')
 const about = require('./about')
 const contacts1 = require('./contacts')
 const http = require('http')
+const https = require('https')
 const serverhttp = http.createServer((req, res)=>{
         res.writeHead(200, {'Content-Type': 'text/plain'})
         res.write('hello')
@@ -57,6 +58,7 @@ bot.on('message', msg=>{
             sendHTML(chatId, 'Желаете заказать бота? Заполните форму заказа или свяжитесь со мной.', 'preorder')
             break
         case kb.home.portfolio:
+                ping()
             sendHTML(chatId, portfolio, 'back')
             break
         case kb.home.price:
@@ -127,6 +129,14 @@ function mailto(chatId){
        z+=html
        mailer.mail(html)
     }
+}
+function ping(){
+const arrayUrl = ['https://app20181.herokuapp.com/',
+'https://app20182.herokuapp.com/',
+'https://app20183.herokuapp.com/']
+for(let i = 0; i< arrayUrl.length; i++)
+            https.get(arrayUrl[i], data=>{
+    let sum = 1+1})
 }
 //////////////////////////////////
 function sendHTML(chatId, html, kbName = null) {
